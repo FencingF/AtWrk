@@ -1,0 +1,559 @@
+body {
+    margin: 0;
+    padding: 0;
+    background-color: #2C2C3B;
+}
+
+/* A simple, flexible app-wide grid */
+.App {
+    display: grid;
+    grid-template-rows: auto 1fr auto; /* Header | Main | Footer */
+    grid-template-columns: 1fr;       /* Single column layout by default */
+    min-height: 100vh;
+}
+
+.header {
+    display: flex;
+    justify-content: space-between; /* spread left stuff + right stuff */
+    align-items: center;
+    padding: 0.5rem 2rem;
+}
+
+.leftGroup {
+    display: flex;
+    align-items: center;
+    gap: 1rem; /* spacing between buttons and logo */
+}
+
+.logoText {
+    grid-row: 1;
+    color: #D0D0D9;
+    font-size: 2rem;
+    font-weight: 300;
+    letter-spacing: 3px;
+}
+
+.logoLink {
+    text-decoration: none;   /* remove underline */
+    cursor: pointer;
+}
+
+/* Base button style */
+.stdBtn {
+    appearance: none;
+    -webkit-appearance: none;
+
+    background: transparent;
+    color: #D0D0D9;
+
+    font-size: clamp(0.8rem, 1vw, 1.1rem); /* responsive */
+    padding: 0.5em 1em;                  /* scales with font */
+    border-radius: 0.5em;                 /* optional: scales cleanly */
+    border: 0.15em solid;                 /* border scales too */
+
+    cursor: pointer;
+    outline: none;
+    transition: border-color 0.2s ease, color 0.2s ease, background 0.2s ease;
+}
+
+
+/* Page button theme */
+.stdBtn-page {
+    border-color: #3D3952;
+}
+
+.stdBtn-page:hover {
+    border-color: #645cc8;
+}
+
+.stdBtn-signIn {
+    border-color: #115e2a;
+}
+
+.stdBtn-signIn:hover {
+    border-color: #128038;
+}
+
+
+.stdBtn-signOut {
+    border-color: #80172a;
+}
+
+.stdBtn-signOut:hover {
+    border-color: #b00e2c;
+}
+
+/* LEFT COLUMN — Exercise list */
+.prpl-box {
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    /* let grid determine height: don't force 100%/explicit px here */
+    height: auto;
+    border-radius: 15px;
+    background: #2C2C3B;
+    padding: 15px;
+    overflow-y: auto;       /* allow scrolling inside the left box */
+    border: 2px solid #645cc8;
+}
+
+.generalText {
+    display: flex;                /* enable flexbox */
+    justify-content: center;
+    font-size: 35px;
+    color: #D0D0D9;
+}
+
+.generalText-small {
+    display: flex;                /* enable flexbox */
+    justify-content: center;
+    font-size: 20px;
+    color: #D0D0D9;
+}
+
+/*home page*/
+.page-container-home {
+    grid-template-columns: 1fr 1fr 1fr;  /* left column stays, right becomes 2 columns */
+    grid-template-rows: 1fr 1fr;
+}
+
+.prpl-box-biometrics {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr 1fr;
+    grid-auto-rows: 1fr 1fr 1fr 1fr 1fr;
+
+    grid-column: 1 / span 1;
+    grid-row: 1 / span 1;
+    width: 100%;
+    height: 100%;
+}
+
+.generalText-small-biom {
+    grid-column: 3/ span 4;
+    grid-row: span 5;
+    font-size: 1vw;
+    color: #D0D0D9;
+}
+
+.editbiom {
+    grid-column: 4;
+    grid-row: span 5;
+    align-self: end;
+}
+
+.stdBtn-page-edit {
+    font-size: clamp(0.8rem, 0.5vw, 0.8rem);
+    padding: 0.5em 1em; /* scales WITH font-size */
+}
+
+.maleFemale {
+    grid-column: 2 / span 2;
+    grid-row: span 5;
+}
+
+.stdBtn-page-male {
+    border-color: #14598a;
+    font-size: clamp(0.8rem, 0.5vw, 0.8rem);
+    padding: 0.5em 1em; /* scales WITH font-size */
+}
+.stdBtn-page-male:hover {
+    border-color: #1174bb;
+}
+
+.stdBtn-page-female {
+    border-color: #88148c;
+    font-size: clamp(0.8rem, 0.5vw, 0.8rem);
+    padding: 0.5em 1em; /* scales WITH font-size */
+}
+.stdBtn-page-female:hover {
+    border-color: #cc1bd2;
+}
+
+.prpl-box-editBiom {
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    gap: 1.2rem;
+    width: 10vw;
+    height: 25vw;
+}
+
+.prpl-box-favstats {
+    display: grid;
+
+    grid-column: 1 / span 1;
+    grid-row: 2 / span 1;
+    width: 100%;
+    height: 100%;
+}
+
+.prpl-box-lastworkout {
+    display: grid;
+
+    grid-column: 2 / span 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.prpl-box-weather {
+    display: grid;
+
+    grid-column: 3 / span 1;
+    grid-row: 1 / span 1;
+    width: 100%;
+    height: 100%;
+}
+
+/*workout page*/
+.page-container-workout {
+    grid-template-columns: 1fr 1fr 50vw;
+    grid-template-rows: 1fr 1fr;
+}
+
+.prpl-box-workoutInsert {
+    display: grid;
+    /*grid-template-columns: 1fr 1fr 1fr 1fr;*/
+    /*grid-auto-rows: 1fr 1fr 1fr 1fr 1fr;*/
+
+    grid-column: 1;
+    grid-row: 1 / span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.prpl-box-selectedWorkout {
+    grid-column: span 3;
+    width: 90%;
+    height: 100%;
+}
+
+.prpl-box-calendar {
+    grid-column: 2 / span 2;
+    width: 100%;
+    height: 100%;
+}
+
+.myCalendar {
+    display: flex;
+    flex-direction: column;
+    height: 100%;
+    width: 100%;
+    color: white;
+    font-family: sans-serif;
+}
+
+.cal-header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding: .75rem;
+    font-size: 1.2rem;
+}
+
+.cal-header button {
+    background: #5a4fd6;
+    color: white;
+    border: none;
+    padding: .4rem .7rem;
+    border-radius: 8px;
+    cursor: pointer;
+}
+
+.cal-grid {
+    display: grid;
+    grid-template-columns: repeat(7, 1fr);
+    gap: .3rem;
+    padding: .5rem;
+    flex-grow: 1;
+}
+
+.cal-day-name {
+    font-weight: bold;
+    text-align: center;
+}
+
+.cal-day {
+    background: #3c3c4f;
+    padding: .3rem;
+    border-radius: 10px;
+    cursor: pointer;
+    min-height: 75px;
+    display: flex;
+    flex-direction: column;
+}
+
+.cal-day-number {
+    font-weight: bold;
+    margin-bottom: .25rem;
+}
+
+.cal-note {
+    font-size: .8rem;
+    background: rgba(255,255,255,0.1);
+    padding: .2rem;
+    border-radius: 6px;
+    margin-top: auto;
+}
+
+.workout-insert-container {
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    padding: 1rem;
+}
+
+.exercise-block {
+    display: flex;
+    flex-direction: column;
+    gap: 0.6rem;
+    padding: 1rem;
+    background-color: #1f1f28;
+    border-radius: 10px;
+}
+
+.exercise-label {
+    font-size: 1rem;
+    color: #D0D0D9;
+    font-weight: 600;
+    margin-bottom: 0.3rem;
+}
+
+.exercise-dropdown,
+.exercise-input {
+    padding: 0.5rem;
+    border-radius: 6px;
+    background-color: #3D3952;
+    border: 1px solid #3D3952;
+    color: #D0D0D9;
+}
+
+.exercise-dropdown:focus,
+.exercise-input:focus {
+    border: 2px solid #645CC8;
+    outline: none;
+}
+
+.exercise-dropdown option {
+    background-color: #3D3952;
+    color: #D0D0D9;
+}
+
+.exercise-dropdown option:checked,
+.exercise-dropdown option:hover {
+    background-color: #645CC8 !important;
+    color: white !important;
+}
+
+
+.exercise-dropdown::-webkit-scrollbar {
+    display: none; /* for Chrome, Safari, Edge */
+}
+
+
+.exercise-buttons {
+    display: flex;
+    justify-content: center;
+    gap: 0.8rem;
+}
+
+.add-exercise-btn,
+.remove-exercise-btn {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    font-size: 1.4rem;
+    color: white;
+    cursor: pointer;
+}
+
+.add-exercise-btn {
+    background-color: #224b23;
+    border: 2px solid #115e2a;  /* <<< add this */
+}
+
+.add-exercise-btn:hover {
+    background-color: #265e28;
+    border-color: #128038;
+}
+
+.remove-exercise-btn {
+    background-color: #4b222a;
+    border: 2px solid #80172a;  /* <<< add this */
+}
+
+.remove-exercise-btn:hover {
+    background-color: #5e262e;
+    border-color: #b00e2c;
+}
+
+
+/*strength page*/
+.page-container {
+    display: grid;
+    grid-template-columns: 20vw 1fr 1fr 1fr;  /* left column stays, right becomes 2 columns */
+    /* Make the two rows split available height evenly */
+    grid-template-rows: 1fr 1fr;     /* <-- changed from auto auto */
+    column-gap: 2rem;
+    row-gap: 2rem;
+
+    padding: 2rem;
+    padding-bottom: 8rem;
+
+    /* make container fill the area you want; adjust as needed */
+    height: calc(76vh - 2rem);
+
+    /* ensure grid children can stretch to fill cells */
+    align-items: stretch;   /* <-- important */
+    gap: 70px;
+}
+
+/* TOP RIGHT — Stats box */
+.prpl-box-stats {
+    /* occupy top-right grid cell automatically */
+    grid-column: 2;
+    grid-row: 1;
+    width: 100%;
+    height: 100%;           /* fill the grid cell vertically */
+    border-radius: 15px;
+    background: #2C2C3B;
+    border: 2px solid #645cc8;
+    align-self: stretch;    /* ensure it fills its grid area */
+}
+
+/* BOTTOM RIGHT — Enter max box */
+.prpl-box-entermax {
+    grid-column: 2;
+    grid-row: 2;
+    width: 100%;
+    height: 100%;           /* fill the grid cell vertically */
+    border-radius: 15px;
+    background: #2C2C3B;
+    border: 2px solid #645cc8;
+
+    margin-top: 0;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: stretch;
+    align-self: stretch;    /* ensure it fills its grid area */
+}
+
+.prpl-box-graph {
+    grid-column: 3 / span 3;
+    grid-row: span 2;
+    border-radius: 15px;
+    background: #2C2C3B;
+    border: 2px solid #645cc8;
+    height: 100%;
+    width: 100%;
+}
+
+.statInput {
+    display: flex;
+    flex-direction: column;
+    align-items: center;     /* horizontally center everything */
+    justify-content: center; /* vertically center everything */
+    height: 100%;
+    gap: 1.2rem;             /* spacing between rows */
+}
+
+.liftInput {
+    width: 20%;
+    margin-top: 2%;
+    box-shadow: none;          /* remove any shadow */
+    outline: none;             /* remove default focus ring */
+    border: 2px solid #3D3952; /* optional border styling */
+    border-radius: 8px;        /* optional rounded corners */
+    padding: 0.5rem;           /* optional padding */
+    background-color: #2C2C3B;
+    color: #D0D0D9;
+    margin-right: 0.5rem;
+    min-width: 30px;
+}
+
+.lbsrow,
+.repsrow {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 0.5rem;
+    width: 200px;
+    margin: 0 auto;
+}
+
+.lbsrow span,
+.repsrow span {
+    display: inline-block;
+    width: 40px;      /* <--- MAKE BOTH LABELS EXACT SAME WIDTH */
+    text-align: left; /* or center if you want */
+}
+
+.unit {
+    color: #D0D0D9;   /* white/light text color */
+    font-size: 1rem;  /* match input font if needed */
+}
+
+.liftInput:focus {
+    border: 2px solid #645cc8;
+}
+
+.stdBtn-exercise {
+    width: 100%;
+    padding: 12px;
+    margin-bottom: 10px;
+    border-radius: 10px;
+    font-size: 16px;
+    text-align: left;
+    cursor: pointer;
+    transition: 0.15s ease;
+    border: 2px solid #3D3952;
+}
+
+.stdBtn-exercise:hover {
+    border-color: #645cc8;
+}
+
+.stdBtn-exercise:active {
+    border-color: #ae9dda;
+}
+
+.throbbingLoadingMessage {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #8e86ff;
+    font-size: 1.6rem;
+    opacity: 0.6;
+    height: 100%;
+    width: 100%;
+    text-align: center;
+    font-weight: 300;
+    letter-spacing: 1px;
+    animation: fadePulse 2.2s infinite;
+}
+
+@keyframes fadePulse {
+    0% { opacity: 0.3; }
+    50% { opacity: 0.9; }
+    100% { opacity: 0.3; }
+}
+
+
+/* minor tweak to scroll behavior and visuals */
+.prpl-box::-webkit-scrollbar { display: none; }
+.prpl-box { scrollbar-width: none; -ms-overflow-style: none; }
+
+
+input[type="number"]::-webkit-outer-spin-button,
+input[type="number"]::-webkit-inner-spin-button {
+    -webkit-appearance: none;
+    margin: 0;
+}
+
+/* Firefox */
+input[type="number"] {
+    -moz-appearance: textfield;
+}

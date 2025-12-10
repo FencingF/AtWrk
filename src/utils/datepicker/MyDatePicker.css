@@ -1,0 +1,60 @@
+/* Input box styling */
+.dateInputCustom {
+    background-color: #2C2C3B;
+    color: #D0D0D9;
+    border: 2px solid #3D3952;
+    padding: 0.5rem;
+    border-radius: 8px;
+    outline: none;
+    width: 160px;
+}
+
+.dateInputCustom:focus {
+    border-color: #645cc8;
+}
+
+/* Calendar popup styling */
+.darkCalendar {
+    background-color: #2C2C3B !important;
+    border: 1px solid #645cc8 !important;
+    color: #D0D0D9 !important;
+}
+
+.darkCalendar .react-datepicker__day {
+    color: #D0D0D9 !important;
+}
+
+.darkCalendar .react-datepicker__day--selected,
+.darkCalendar .react-datepicker__day--keyboard-selected {
+    background-color: #645cc8 !important;
+}
+
+.darkCalendar .react-datepicker__header {
+    background-color: #3D3952 !important;
+    border-bottom: 1px solid #645cc8 !important;
+}
+
+.darkCalendar .react-datepicker__current-month {
+    color: #D0D0D9 !important;
+}
+
+.darkCalendar .react-datepicker__day-name {
+    color: #D0D0D9 !important;
+}
+
+/* fix popper color */
+.darkPopper .react-datepicker {
+    color: #D0D0D9 !important;
+    z-index: 9999 !important;
+}
+
+.darkDropdown {
+    background-color: #2C2C3B;
+    color: #D0D0D9;
+    border: 1px solid #645cc8;
+    border-radius: 4px;
+    padding: 0.2rem 0.4rem;
+    margin: 0 0.2rem;
+}
+
+/*TODO: Change arrow color*/
