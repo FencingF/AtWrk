@@ -1,4 +1,4 @@
-import { login, logout, loggedInUserDisplayName } from "../services/authservice"
+import { login, logout } from "../services/authservice"
 
 export function SignIn() {
     return (
