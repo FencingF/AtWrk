@@ -19,7 +19,7 @@ export default function StrengthGraph({ data }) {
                 <Tooltip />
                 <Line
                     type="monotone"
-                    dataKey="Weight (lbs)"
+                    dataKey="value"
                     stroke="#645cc8"
                     strokeWidth={3}
                     dot={false}
