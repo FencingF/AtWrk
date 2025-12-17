@@ -2,7 +2,7 @@ import Calendar from "../utils/Calendar.jsx";
 import { useState, useEffect } from "react";
 import { exerciseList } from "../utils/ExerciseList.js";
 import { auth, db } from "../firebaseConfig.js";
-import { addDoc, collection, query, where, getDocs } from "firebase/firestore";
+import { addDoc, collection, query, where, getDocs, deleteDoc, doc } from "firebase/firestore";
 import MyDatePicker from "../utils/datepicker/MyDatePicker.jsx";
 
 export default function WorkoutPage() {
@@ -128,6 +128,27 @@ export default function WorkoutPage() {
         alert("Workout saved and logged!");
     };
 
+    const deleteWorkout = async () => {
+        if (!selectedWorkout) return;
+
+        const confirmDelete = window.confirm(
+            "Are you sure you want to delete this workout?"
+        );
+
+        if (!confirmDelete) return;
+
+        try {
+            await deleteDoc(doc(db, "workouts", selectedWorkout.id));
+
+            setSelectedWorkout(null);
+            await loadWorkouts();
+        } catch (err) {
+            console.error(err);
+            alert("Failed to delete workout.");
+        }
+    };
+
+
     return (
         <div className="page-container page-container-workout">
 
@@ -220,6 +241,13 @@ export default function WorkoutPage() {
                                 {selectedWorkout.Sets[i]} sets
                             </div>
                         ))}
+                        <button
+                            className="stdBtn stdBtn-signOut"
+                            style={{ marginTop: "1.5rem" }}
+                            onClick={deleteWorkout}
+                        >
+                            Delete Workout
+                        </button>
                     </div>
                 ) : (
                     <div style={{ padding: "1rem", color: "white", opacity: 0.5 }}>
