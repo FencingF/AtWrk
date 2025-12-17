@@ -32,6 +32,7 @@ export const exerciseList = [
     "Dumbbell Pullover",
     "Dumbbell Row (Single‑Arm)",
     "Face Pull",
+    "Flutter Kicks",
     "Front Squat",
     "Glute Bridge",
     "Good Morning",
