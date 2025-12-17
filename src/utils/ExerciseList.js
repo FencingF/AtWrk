@@ -76,6 +76,7 @@ export const exerciseList = [
     "Split Squat (Front)",
     "Split Squat (Bulgarian)",
     "T‑Bar Row",
+    "Tricep Bar Pushdown",
     "Tricep Cable Pushdown",
     "Tricep Extension (Overhead)",
     "Walking Lunge",
