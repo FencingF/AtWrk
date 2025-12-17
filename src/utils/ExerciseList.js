@@ -70,6 +70,7 @@ export const exerciseList = [
     "Shrug (Barbell)",
     "Sit‑Up",
     "Smith Machine Bench Press",
+    "Smith Machine Bench Press (Incline)",
     "Smith Machine Squat",
     "Smith Machine Shoulder Press",
     "Split Squat (Front)",
