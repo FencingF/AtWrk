@@ -37,6 +37,8 @@ export const exerciseList = [
     "Glute Bridge",
     "Good Morning",
     "Hack Squat",
+    "Hamstring Curl (Prone)",
+    "Hamstring Curl (Seated)",
     "Hanging Leg Raise",
     "Hanging Knee Raise",
     "Hip Thrust",
