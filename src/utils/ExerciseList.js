@@ -77,7 +77,6 @@ export const exerciseList = [
     "Smith Machine Squat",
     "Smith Machine Shoulder Press",
     "Split Squat (Front)",
-    "Split Squat (Bulgarian)",
     "T‑Bar Row",
     "Tricep Bar Pushdown",
     "Tricep Cable Pushdown",
